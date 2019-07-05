@@ -1,0 +1,121 @@
+[19-01-2015 04:30:18] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-01-2015 04:30:18] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 04:30:18] PayPal\Core\PPHttpConnection: FINE: Authorization: Basic QWREOUt4RDVvanF5X3VvQl9FR1ozazJoZWxFZTdkeDltNXZzVUpURWN1VWFlRXZJMmhoeVUxcDZ4SzhhOkVKN3FJUkNqdUtTZVV4a0hYUThhdnhqZ2FCYTBUS0pqUFZ1SllDa2dMMnVlOHQ3TmZSTnlob1RvNTBvNg==
+[19-01-2015 04:30:18] PayPal\Core\PPHttpConnection: FINE: Accept: */*
+[19-01-2015 04:30:18] PayPal\Core\PPHttpConnection: FINE: Payload : grant_type=client_credentials
+
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: FINE: Response : {"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/services/invoicing https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","access_token":"A0151Foatt6dwgc5hOUARdqO3ondHxK9pAuSAtuPmupjFIg","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":28800}
+
+
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A0151Foatt6dwgc5hOUARdqO3ondHxK9pAuSAtuPmupjFIg
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: FINE: PayPal-Request-Id: 21307064334966142168501861556
+[19-01-2015 04:30:25] PayPal\Core\PPHttpConnection: FINE: Payload : {"intent":"authorize","payer":{"payment_method":"credit_card","funding_instruments":[{"credit_card":{"type":"visa","number":"4417119669820331","expire_month":"11","expire_year":"2019","cvv2":"012","first_name":"Joe","last_name":"Shopper"}}]},"transactions":[{"amount":{"currency":"USD","total":"400"},"description":"Payment description."}]}
+
+[19-01-2015 04:30:48] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"PAY-6KK98188U02889947KS6TCIY","create_time":"2015-01-19T16:30:27Z","update_time":"2015-01-19T16:30:48Z","state":"approved","intent":"authorize","payer":{"payment_method":"credit_card","funding_instruments":[{"credit_card":{"type":"visa","number":"xxxxxxxxxxxx0331","expire_month":"11","expire_year":"2019","first_name":"Joe","last_name":"Shopper"}}]},"transactions":[{"amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"description":"Payment description.","related_resources":[{"authorization":{"id":"5V524946LP465824B","create_time":"2015-01-19T16:30:27Z","update_time":"2015-01-19T16:30:48Z","amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"state":"authorized","parent_payment":"PAY-6KK98188U02889947KS6TCIY","valid_until":"2015-02-17T16:30:27Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B/capture","rel":"capture","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B/void","rel":"void","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6KK98188U02889947KS6TCIY","rel":"parent_payment","method":"GET"}]}}]}],"links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6KK98188U02889947KS6TCIY","rel":"self","method":"GET"}]}
+
+
+[19-01-2015 04:30:48] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-01-2015 04:30:48] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 04:30:48] PayPal\Core\PPHttpConnection: FINE: Authorization: Basic QWREOUt4RDVvanF5X3VvQl9FR1ozazJoZWxFZTdkeDltNXZzVUpURWN1VWFlRXZJMmhoeVUxcDZ4SzhhOkVKN3FJUkNqdUtTZVV4a0hYUThhdnhqZ2FCYTBUS0pqUFZ1SllDa2dMMnVlOHQ3TmZSTnlob1RvNTBvNg==
+[19-01-2015 04:30:48] PayPal\Core\PPHttpConnection: FINE: Accept: */*
+[19-01-2015 04:30:48] PayPal\Core\PPHttpConnection: FINE: Payload : grant_type=client_credentials
+
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: FINE: Response : {"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/services/invoicing https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","access_token":"A015ZNHfRqZtr5.lY2AzS5EqIMUKg2NuQkju2NA0lhfslug","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":28800}
+
+
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A015ZNHfRqZtr5.lY2AzS5EqIMUKg2NuQkju2NA0lhfslug
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: FINE: PayPal-Request-Id: 21307064334966142168501822120
+[19-01-2015 04:30:54] PayPal\Core\PPHttpConnection: FINE: Payload : {"intent":"authorize","payer":{"payment_method":"credit_card","funding_instruments":[{"credit_card":{"type":"visa","number":"4417119669820331","expire_month":"11","expire_year":"2019","cvv2":"012","first_name":"Joe","last_name":"Shopper"}}]},"transactions":[{"amount":{"currency":"USD","total":"400"},"description":"Payment description."}]}
+
+[19-01-2015 04:31:19] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"PAY-5M616317WH2823403KS6TCQA","create_time":"2015-01-19T16:30:56Z","update_time":"2015-01-19T16:31:19Z","state":"approved","intent":"authorize","payer":{"payment_method":"credit_card","funding_instruments":[{"credit_card":{"type":"visa","number":"xxxxxxxxxxxx0331","expire_month":"11","expire_year":"2019","first_name":"Joe","last_name":"Shopper"}}]},"transactions":[{"amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"description":"Payment description.","related_resources":[{"authorization":{"id":"0CK37542DN294184C","create_time":"2015-01-19T16:30:56Z","update_time":"2015-01-19T16:31:19Z","amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"state":"authorized","parent_payment":"PAY-5M616317WH2823403KS6TCQA","valid_until":"2015-02-17T16:30:56Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/capture","rel":"capture","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/void","rel":"void","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5M616317WH2823403KS6TCQA","rel":"parent_payment","method":"GET"}]}}]}],"links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5M616317WH2823403KS6TCQA","rel":"self","method":"GET"}]}
+
+
+[19-01-2015 05:58:29] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-01-2015 05:58:29] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 05:58:29] PayPal\Core\PPHttpConnection: FINE: Authorization: Basic QWREOUt4RDVvanF5X3VvQl9FR1ozazJoZWxFZTdkeDltNXZzVUpURWN1VWFlRXZJMmhoeVUxcDZ4SzhhOkVKN3FJUkNqdUtTZVV4a0hYUThhdnhqZ2FCYTBUS0pqUFZ1SllDa2dMMnVlOHQ3TmZSTnlob1RvNTBvNg==
+[19-01-2015 05:58:29] PayPal\Core\PPHttpConnection: FINE: Accept: */*
+[19-01-2015 05:58:29] PayPal\Core\PPHttpConnection: FINE: Payload : grant_type=client_credentials
+
+[19-01-2015 05:58:35] PayPal\Core\PPHttpConnection: FINE: Response : {"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/services/invoicing https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","access_token":"A015.lb.MmI0Yn7LUlHsft-2DDUAN5TeakccChoouFhicpQ","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":28800}
+
+
+[19-01-2015 05:58:35] PayPal\Core\PPHttpConnection: INFO: GET https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B
+[19-01-2015 05:58:35] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 05:58:35] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 05:58:35] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A015.lb.MmI0Yn7LUlHsft-2DDUAN5TeakccChoouFhicpQ
+[19-01-2015 05:58:35] PayPal\Core\PPHttpConnection: FINE: No Request Payload
+
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"5V524946LP465824B","create_time":"2015-01-19T16:30:27Z","update_time":"2015-01-19T16:30:48Z","amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"payment_mode":"INSTANT_TRANSFER","state":"authorized","protection_eligibility":"ELIGIBLE","protection_eligibility_type":"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE","parent_payment":"PAY-6KK98188U02889947KS6TCIY","valid_until":"2015-02-17T16:30:27Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B/capture","rel":"capture","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B/void","rel":"void","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6KK98188U02889947KS6TCIY","rel":"parent_payment","method":"GET"}]}
+
+
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B/void
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A015.lb.MmI0Yn7LUlHsft-2DDUAN5TeakccChoouFhicpQ
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: FINE: PayPal-Request-Id: 21307064334967142169030930704
+[19-01-2015 05:58:37] PayPal\Core\PPHttpConnection: FINE: No Request Payload
+
+[19-01-2015 05:58:40] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"5V524946LP465824B","create_time":"2015-01-19T16:30:27Z","update_time":"2015-01-19T16:30:48Z","amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"state":"voided","parent_payment":"PAY-6KK98188U02889947KS6TCIY","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/5V524946LP465824B","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-6KK98188U02889947KS6TCIY","rel":"parent_payment","method":"GET"}]}
+
+
+[19-01-2015 06:01:57] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-01-2015 06:01:57] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 06:01:57] PayPal\Core\PPHttpConnection: FINE: Authorization: Basic QWREOUt4RDVvanF5X3VvQl9FR1ozazJoZWxFZTdkeDltNXZzVUpURWN1VWFlRXZJMmhoeVUxcDZ4SzhhOkVKN3FJUkNqdUtTZVV4a0hYUThhdnhqZ2FCYTBUS0pqUFZ1SllDa2dMMnVlOHQ3TmZSTnlob1RvNTBvNg==
+[19-01-2015 06:01:57] PayPal\Core\PPHttpConnection: FINE: Accept: */*
+[19-01-2015 06:01:57] PayPal\Core\PPHttpConnection: FINE: Payload : grant_type=client_credentials
+
+[19-01-2015 06:02:01] PayPal\Core\PPHttpConnection: FINE: Response : {"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/services/invoicing https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","access_token":"A015LVOK1bHQ8AtyenEu13td87wAOZB7ISuQ0SIeQQB-vG8","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":28800}
+
+
+[19-01-2015 06:02:01] PayPal\Core\PPHttpConnection: INFO: GET https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C
+[19-01-2015 06:02:01] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 06:02:01] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 06:02:01] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A015LVOK1bHQ8AtyenEu13td87wAOZB7ISuQ0SIeQQB-vG8
+[19-01-2015 06:02:01] PayPal\Core\PPHttpConnection: FINE: No Request Payload
+
+[19-01-2015 06:02:06] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"0CK37542DN294184C","create_time":"2015-01-19T16:30:56Z","update_time":"2015-01-19T16:31:19Z","amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"payment_mode":"INSTANT_TRANSFER","state":"authorized","protection_eligibility":"ELIGIBLE","protection_eligibility_type":"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE","parent_payment":"PAY-5M616317WH2823403KS6TCQA","valid_until":"2015-02-17T16:30:56Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/capture","rel":"capture","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/void","rel":"void","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5M616317WH2823403KS6TCQA","rel":"parent_payment","method":"GET"}]}
+
+
+[19-01-2015 06:03:27] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-01-2015 06:03:27] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 06:03:27] PayPal\Core\PPHttpConnection: FINE: Authorization: Basic QWREOUt4RDVvanF5X3VvQl9FR1ozazJoZWxFZTdkeDltNXZzVUpURWN1VWFlRXZJMmhoeVUxcDZ4SzhhOkVKN3FJUkNqdUtTZVV4a0hYUThhdnhqZ2FCYTBUS0pqUFZ1SllDa2dMMnVlOHQ3TmZSTnlob1RvNTBvNg==
+[19-01-2015 06:03:27] PayPal\Core\PPHttpConnection: FINE: Accept: */*
+[19-01-2015 06:03:27] PayPal\Core\PPHttpConnection: FINE: Payload : grant_type=client_credentials
+
+[19-01-2015 06:03:32] PayPal\Core\PPHttpConnection: FINE: Response : {"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks openid https://uri.paypal.com/services/invoicing https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.*","access_token":"A015z5kk4nwqmgPbe4QJOmbWM.LuGZ9qCym1dKwiRZ2TX3A","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":28800}
+
+
+[19-01-2015 06:03:32] PayPal\Core\PPHttpConnection: INFO: GET https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C
+[19-01-2015 06:03:32] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 06:03:32] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 06:03:32] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A015z5kk4nwqmgPbe4QJOmbWM.LuGZ9qCym1dKwiRZ2TX3A
+[19-01-2015 06:03:32] PayPal\Core\PPHttpConnection: FINE: No Request Payload
+
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"0CK37542DN294184C","create_time":"2015-01-19T16:30:56Z","update_time":"2015-01-19T16:31:19Z","amount":{"total":"400.00","currency":"USD","details":{"subtotal":"400.00"}},"payment_mode":"INSTANT_TRANSFER","state":"authorized","protection_eligibility":"ELIGIBLE","protection_eligibility_type":"ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE","parent_payment":"PAY-5M616317WH2823403KS6TCQA","valid_until":"2015-02-17T16:30:56Z","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/capture","rel":"capture","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/void","rel":"void","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5M616317WH2823403KS6TCQA","rel":"parent_payment","method":"GET"}]}
+
+
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: INFO: POST https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C/capture
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: FINE: Content-Type: application/json
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: FINE: User-Agent: PayPalSDK/PayPal-PHP-SDK 0.16.0 (lang=PHP;v=5.5.14;bit=64;os=Darwin_14.1.0;machine=x86_64;openssl=0.9.8za;curl=7.37.1)
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: FINE: Authorization: Bearer A015z5kk4nwqmgPbe4QJOmbWM.LuGZ9qCym1dKwiRZ2TX3A
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: FINE: PayPal-Request-Id: 21307064336580142169060756051
+[19-01-2015 06:03:36] PayPal\Core\PPHttpConnection: FINE: Payload : {"amount":{"currency":"USD","total":"400"}}
+
+[19-01-2015 06:04:00] PayPal\Core\PPHttpConnection: FINE: Response : {"id":"2F5024575Y6899042","create_time":"2015-01-19T18:03:43Z","update_time":"2015-01-19T18:04:01Z","amount":{"total":"400.00","currency":"USD"},"is_final_capture":false,"state":"completed","parent_payment":"PAY-5M616317WH2823403KS6TCQA","links":[{"href":"https://api.sandbox.paypal.com/v1/payments/capture/2F5024575Y6899042","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/capture/2F5024575Y6899042/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v1/payments/authorization/0CK37542DN294184C","rel":"authorization","method":"GET"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-5M616317WH2823403KS6TCQA","rel":"parent_payment","method":"GET"}]}
+
+
+[25-02-2015 07:56:21] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-02-2015 07:56:28] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-02-2015 07:56:28] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.sandbox.paypal.com/v1/payments/payment
+[25-02-2015 07:56:36] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 201
+[25-02-2015 08:04:47] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-02-2015 08:22:56] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[25-02-2015 08:23:00] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-02-2015 08:23:00] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.sandbox.paypal.com/v1/payments/payment
+[25-02-2015 08:23:04] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 201
