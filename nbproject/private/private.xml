@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/roboto/Documents/AT1/src/views/main.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/views/Customer_view.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/models/Staff.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/views/Manager_view.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/models/Manager.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/bank/Bank.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/connection/telegram.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/views/Staff_view.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/views/Login_view.java</file>
+            <file>file:/home/roboto/Documents/AT1/src/models/Customer.java</file>
         </group>
     </open-files>
 </project-private>

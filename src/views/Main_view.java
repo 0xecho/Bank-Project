@@ -528,7 +528,7 @@ public class Main_view extends javax.swing.JFrame {
 
         int depositval = Integer.parseInt(depositBox.getText());
         if(depositval<=0){
-            System.out.println("Error: Deposited amount is less than minimun value");
+            Bank.showError("Deposited amount is less than minimun value");
             return;
         }
 

@@ -7,17 +7,26 @@ package views;
 
 import bank.Bank;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import java.awt.Font;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.font.TextAttribute;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import models.Customer;
 
 
@@ -28,10 +37,14 @@ import models.Customer;
  */
 public class Login_view extends javax.swing.JFrame {
 
+    private int mousex;
+    private int mousey;
+
     /**
      * Creates new form Login_view
      */
     public Login_view() {
+        this.setLocationByPlatform(true);
         initComponents();
         MainRegisterPanel.setVisible(false);
         DOBTextField.setText("DD");
@@ -40,8 +53,7 @@ public class Login_view extends javax.swing.JFrame {
         DOBTextField1.setForeground(Color.GRAY);
         DOBTextField2.setText("YYYY");
         DOBTextField2.setForeground(Color.GRAY);
-        
-        
+        jLabel3.setVisible(false);
     }
 
     /**
@@ -54,90 +66,176 @@ public class Login_view extends javax.swing.JFrame {
     private void initComponents() {
 
         interest = new javax.swing.ButtonGroup();
+        login1 = new keeptoo.KButton();
         MainLoginPanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         pass = new javax.swing.JPasswordField();
         acc_num = new javax.swing.JTextField();
-        LoginButton = new javax.swing.JButton();
-        AccountNumberLabel = new javax.swing.JLabel();
-        PasswordLabel = new javax.swing.JLabel();
         CreateAccountLabel = new javax.swing.JLabel();
+        login = new keeptoo.KButton();
+        userSep = new javax.swing.JSeparator();
+        passSep = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         MainRegisterPanel = new javax.swing.JPanel();
         RegisterLabel = new javax.swing.JLabel();
-        FirstNameLabel = new javax.swing.JLabel();
         FirstNameTextField = new javax.swing.JTextField();
         LastNameLabel = new javax.swing.JTextField();
-        LastNameTextField = new javax.swing.JLabel();
         EmailTextField = new javax.swing.JTextField();
-        EmailAddressLabel = new javax.swing.JLabel();
-        PhoneNumberLabel = new javax.swing.JLabel();
         PhoneNumberTextField = new javax.swing.JTextField();
-        Password = new javax.swing.JLabel();
         DOBField = new javax.swing.JLabel();
         DOBTextField = new javax.swing.JTextField();
-        RegisterButton = new javax.swing.JButton();
         PasswordField = new javax.swing.JPasswordField();
-        DOBField1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         DOBTextField1 = new javax.swing.JTextField();
         DOBTextField2 = new javax.swing.JTextField();
-        Backbutton = new javax.swing.JButton();
+        usernameTextField = new javax.swing.JTextField();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
+        jLabel2 = new javax.swing.JLabel();
+        fNameSep = new javax.swing.JSeparator();
+        lNameSep = new javax.swing.JSeparator();
+        emailSep = new javax.swing.JSeparator();
+        phoneSep = new javax.swing.JSeparator();
+        userNameSep = new javax.swing.JSeparator();
+        passwordSep = new javax.swing.JSeparator();
+        Backbutton = new keeptoo.KButton();
+        RegisterButton = new keeptoo.KButton();
+
+        login1.setBorder(null);
+        login1.setText("LOGIN");
+        login1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        login1.setkAllowTab(false);
+        login1.setkBackGroundColor(new java.awt.Color(202, 62, 71));
+        login1.setkEndColor(new java.awt.Color(202, 62, 71));
+        login1.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        login1.setkHoverForeGround(new java.awt.Color(202, 62, 71));
+        login1.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        login1.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        login1.setkStartColor(new java.awt.Color(202, 62, 71));
+        login1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login1LoginButtonActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setLocation(Login_view.getCenter());
+        setUndecorated(true);
 
-        MainLoginPanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainLoginPanel.setBackground(new java.awt.Color(90, 90, 90));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        kGradientPanel2.setkBorderRadius(0);
+        kGradientPanel2.setkEndColor(new java.awt.Color(49, 49, 49));
+        kGradientPanel2.setkStartColor(new java.awt.Color(49, 49, 49));
+        kGradientPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel2MouseDragged(evt);
+            }
+        });
+        kGradientPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel2MousePressed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/close.png")); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(454, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        kGradientPanel1.setkBorderRadius(0);
+        kGradientPanel1.setkEndColor(new java.awt.Color(82, 82, 82));
+        kGradientPanel1.setkStartColor(new java.awt.Color(82, 82, 82));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pass.setFont(new java.awt.Font("Montserrat Light", 0, 14)); // NOI18N
+        pass.setForeground(new java.awt.Color(255, 255, 255));
+        pass.setText("Password");
+        pass.setBorder(null);
+        pass.setOpaque(false);
+        pass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passFocusLost(evt);
+            }
+        });
+        pass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passMouseClicked(evt);
+            }
+        });
         pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passActionPerformed(evt);
             }
         });
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 190, 20));
+        pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passKeyTyped(evt);
+            }
+        });
+        kGradientPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 190, 30));
 
+        acc_num.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        acc_num.setForeground(new java.awt.Color(248, 248, 248));
+        acc_num.setText("Username");
+        acc_num.setToolTipText("");
+        acc_num.setBorder(null);
+        acc_num.setOpaque(false);
+        acc_num.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                acc_numFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                acc_numFocusLost(evt);
+            }
+        });
+        acc_num.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                acc_numMouseClicked(evt);
+            }
+        });
         acc_num.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acc_numActionPerformed(evt);
             }
         });
-        jPanel1.add(acc_num, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 190, 20));
-
-        LoginButton.setText("Login");
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
+        acc_num.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                acc_numKeyTyped(evt);
             }
         });
-        jPanel1.add(LoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 120, 30));
+        kGradientPanel1.add(acc_num, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 190, 30));
 
-        AccountNumberLabel.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        AccountNumberLabel.setText("Account Number");
-        jPanel1.add(AccountNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 130, 20));
-
-        PasswordLabel.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        PasswordLabel.setText("Password");
-        jPanel1.add(PasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 110, 30));
-
-        CreateAccountLabel.setFont(new java.awt.Font("Dialog", 1, 9)); // NOI18N
+        CreateAccountLabel.setFont(new java.awt.Font("Montserrat Light", 1, 10)); // NOI18N
+        CreateAccountLabel.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountLabel.setText("Create account");
         CreateAccountLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CreateAccountLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,47 +246,130 @@ public class Login_view extends javax.swing.JFrame {
                 CreateAccountLabelMouseEntered(evt);
             }
         });
-        jPanel1.add(CreateAccountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 80, 20));
+        kGradientPanel1.add(CreateAccountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 80, 20));
+
+        login.setBorder(null);
+        login.setText("LOGIN");
+        login.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        login.setkAllowTab(false);
+        login.setkBackGroundColor(new java.awt.Color(202, 62, 71));
+        login.setkEndColor(new java.awt.Color(202, 62, 71));
+        login.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        login.setkHoverForeGround(new java.awt.Color(202, 62, 71));
+        login.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        login.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        login.setkStartColor(new java.awt.Color(202, 62, 71));
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 190, -1));
+        kGradientPanel1.add(userSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 190, -1));
+        kGradientPanel1.add(passSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 190, -1));
+
+        jLabel3.setFont(new java.awt.Font("Montserrat Thin", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Login Failed! Try again");
+        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 190, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/bank.png")); // NOI18N
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
         javax.swing.GroupLayout MainLoginPanelLayout = new javax.swing.GroupLayout(MainLoginPanel);
         MainLoginPanel.setLayout(MainLoginPanelLayout);
         MainLoginPanelLayout.setHorizontalGroup(
             MainLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+            .addGroup(MainLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
         );
         MainLoginPanelLayout.setVerticalGroup(
             MainLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainLoginPanelLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainLoginPanelLayout.createSequentialGroup()
+                .addGap(0, 57, Short.MAX_VALUE)
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(MainLoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MainLoginPanelLayout.createSequentialGroup()
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 540, Short.MAX_VALUE)))
         );
 
-        MainRegisterPanel.setBackground(new java.awt.Color(204, 204, 204));
+        MainRegisterPanel.setBackground(new java.awt.Color(82, 82, 82));
+        MainRegisterPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        RegisterLabel.setFont(new java.awt.Font("Open Sans Extrabold", 0, 14)); // NOI18N
+        RegisterLabel.setFont(new java.awt.Font("Montserrat SemiBold", 0, 36)); // NOI18N
+        RegisterLabel.setForeground(new java.awt.Color(255, 255, 255));
         RegisterLabel.setText("Register");
 
-        FirstNameLabel.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        FirstNameLabel.setText("First name");
+        FirstNameTextField.setBackground(new java.awt.Color(82, 82, 82));
+        FirstNameTextField.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        FirstNameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        FirstNameTextField.setText("First Name");
+        FirstNameTextField.setBorder(null);
+        FirstNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                FirstNameTextFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                FirstNameTextFieldFocusLost(evt);
+            }
+        });
 
-        LastNameTextField.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        LastNameTextField.setText("Last name");
+        LastNameLabel.setBackground(new java.awt.Color(82, 82, 82));
+        LastNameLabel.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        LastNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        LastNameLabel.setText("Last Name");
+        LastNameLabel.setBorder(null);
+        LastNameLabel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                LastNameLabelFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                LastNameLabelFocusLost(evt);
+            }
+        });
 
-        EmailAddressLabel.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        EmailAddressLabel.setText("Email Address");
+        EmailTextField.setBackground(new java.awt.Color(82, 82, 82));
+        EmailTextField.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        EmailTextField.setForeground(new java.awt.Color(255, 255, 255));
+        EmailTextField.setText("Email");
+        EmailTextField.setBorder(null);
+        EmailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                EmailTextFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                EmailTextFieldFocusLost(evt);
+            }
+        });
 
-        PhoneNumberLabel.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        PhoneNumberLabel.setText("Phone Number");
+        PhoneNumberTextField.setBackground(new java.awt.Color(82, 82, 82));
+        PhoneNumberTextField.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        PhoneNumberTextField.setForeground(new java.awt.Color(255, 255, 255));
+        PhoneNumberTextField.setText("Phone Number");
+        PhoneNumberTextField.setBorder(null);
+        PhoneNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PhoneNumberTextFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PhoneNumberTextFieldFocusLost(evt);
+            }
+        });
+        PhoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PhoneNumberTextFieldActionPerformed(evt);
+            }
+        });
 
-        Password.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        Password.setText("Password");
-
-        DOBField.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        DOBField.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        DOBField.setForeground(new java.awt.Color(255, 255, 255));
         DOBField.setText("Date of birth");
 
         DOBTextField.setForeground(Color.GRAY);
+        DOBTextField.setText("DD");
+        DOBTextField.setBorder(null);
         DOBTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 DOBTextFieldFocusGained(evt);
@@ -197,26 +378,28 @@ public class Login_view extends javax.swing.JFrame {
                 DOBTextFieldFocusLost(evt);
             }
         });
-
-        RegisterButton.setText("Register");
-        RegisterButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.lightGray));
-        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+        DOBTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterButtonActionPerformed(evt);
+                DOBTextFieldActionPerformed(evt);
             }
         });
 
-        DOBField1.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        DOBField1.setText("Interest-Free");
+        PasswordField.setBackground(new java.awt.Color(82, 82, 82));
+        PasswordField.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        PasswordField.setForeground(new java.awt.Color(255, 255, 255));
+        PasswordField.setText("Password");
+        PasswordField.setBorder(null);
+        PasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PasswordFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PasswordFieldFocusLost(evt);
+            }
+        });
 
-        interest.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        jRadioButton1.setText("Yes");
-
-        interest.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        jRadioButton2.setText("No");
-
+        DOBTextField1.setText("MM");
+        DOBTextField1.setBorder(null);
         DOBTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 DOBTextField1FocusGained(evt);
@@ -226,6 +409,8 @@ public class Login_view extends javax.swing.JFrame {
             }
         });
 
+        DOBTextField2.setText("YYYY");
+        DOBTextField2.setBorder(null);
         DOBTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 DOBTextField2FocusGained(evt);
@@ -235,11 +420,101 @@ public class Login_view extends javax.swing.JFrame {
             }
         });
 
-        Backbutton.setText("Back");
-        Backbutton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray, java.awt.Color.white, java.awt.Color.lightGray));
+        usernameTextField.setBackground(new java.awt.Color(82, 82, 82));
+        usernameTextField.setFont(new java.awt.Font("Montserrat Light", 1, 14)); // NOI18N
+        usernameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        usernameTextField.setText("Username");
+        usernameTextField.setBorder(null);
+        usernameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameTextFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameTextFieldFocusLost(evt);
+            }
+        });
+        usernameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameTextFieldActionPerformed(evt);
+            }
+        });
+
+        kGradientPanel3.setkBorderRadius(0);
+        kGradientPanel3.setkEndColor(new java.awt.Color(49, 49, 49));
+        kGradientPanel3.setkStartColor(new java.awt.Color(49, 49, 49));
+        kGradientPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel3MouseDragged(evt);
+            }
+        });
+        kGradientPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel3MousePressed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/close.png")); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap(454, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel3Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(21, 21, 21))
+        );
+
+        Backbutton.setBorder(null);
+        Backbutton.setText("BACK");
+        Backbutton.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        Backbutton.setkAllowTab(false);
+        Backbutton.setkBackGroundColor(new java.awt.Color(202, 62, 71));
+        Backbutton.setkEndColor(new java.awt.Color(202, 62, 71));
+        Backbutton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        Backbutton.setkHoverForeGround(new java.awt.Color(202, 62, 71));
+        Backbutton.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        Backbutton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        Backbutton.setkStartColor(new java.awt.Color(202, 62, 71));
         Backbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackbuttonActionPerformed(evt);
+                BackbuttonLoginButtonActionPerformed(evt);
+            }
+        });
+
+        RegisterButton.setBorder(null);
+        RegisterButton.setText("REGISTER");
+        RegisterButton.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        RegisterButton.setkAllowTab(false);
+        RegisterButton.setkBackGroundColor(new java.awt.Color(202, 62, 71));
+        RegisterButton.setkEndColor(new java.awt.Color(202, 62, 71));
+        RegisterButton.setkHoverEndColor(new java.awt.Color(255, 255, 255));
+        RegisterButton.setkHoverForeGround(new java.awt.Color(202, 62, 71));
+        RegisterButton.setkHoverStartColor(new java.awt.Color(255, 255, 255));
+        RegisterButton.setkSelectedColor(new java.awt.Color(255, 255, 255));
+        RegisterButton.setkStartColor(new java.awt.Color(202, 62, 71));
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonLoginButtonActionPerformed(evt);
             }
         });
 
@@ -247,78 +522,71 @@ public class Login_view extends javax.swing.JFrame {
         MainRegisterPanel.setLayout(MainRegisterPanelLayout);
         MainRegisterPanelLayout.setHorizontalGroup(
             MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
             .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(102, 102, 102)
+                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                        .addComponent(Password)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                        .addComponent(PhoneNumberLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                        .addComponent(EmailAddressLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                        .addComponent(LastNameTextField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(LastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                        .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(FirstNameLabel)
-                            .addComponent(RegisterLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(FirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                        .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DOBField1)
-                            .addComponent(DOBField))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DOBTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DOBTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DOBTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MainRegisterPanelLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addComponent(RegisterLabel))
+                    .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(MainRegisterPanelLayout.createSequentialGroup()
+                            .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(41, 41, 41)
+                            .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addComponent(usernameTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainRegisterPanelLayout.createSequentialGroup()
+                            .addComponent(DOBField)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(DOBTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(DOBTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(DOBTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fNameSep, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(FirstNameTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(LastNameLabel)
+                        .addComponent(lNameSep, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(EmailTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(emailSep)
+                        .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(phoneSep, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(userNameSep)
+                        .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(passwordSep, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainRegisterPanelLayout.setVerticalGroup(
             MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainRegisterPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RegisterLabel)
+                .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FirstNameLabel)
-                    .addComponent(FirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(RegisterLabel)
+                .addGap(27, 27, 27)
+                .addComponent(FirstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(fNameSep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(LastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LastNameTextField)
-                    .addComponent(LastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lNameSep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailAddressLabel)
-                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(emailSep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PhoneNumberLabel)
-                    .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(phoneSep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Password))
+                .addComponent(userNameSep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordSep, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DOBField)
                     .addComponent(DOBTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,14 +594,9 @@ public class Login_view extends javax.swing.JFrame {
                     .addComponent(DOBTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DOBField1)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addGap(18, 18, 18)
-                .addGroup(MainRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,12 +626,21 @@ public class Login_view extends javax.swing.JFrame {
         
     }//GEN-LAST:event_passActionPerformed
 
+    public static Point getCenter(){
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = screenSize.getWidth();
+        double height = screenSize.getHeight();
+        return new Point((int)width/3, (int)height/3-50); 
+    }
+    
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         try {
             // TODO add your handling code here:
             onClickLogin();
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } catch (Exception ex) {
+            Logger.getLogger(Login_view.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
@@ -388,16 +660,6 @@ public class Login_view extends javax.swing.JFrame {
         this.setFont(font.deriveFont(attributes));
 
     }//GEN-LAST:event_CreateAccountLabelMouseEntered
-
-    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
-        try {
-            // TODO add your handling code here:
-            if(Customer.registerUser(FirstNameTextField.getText(), LastNameLabel.getText(), EmailTextField.getText(), PhoneNumberTextField.getText(), PasswordField.getText(), "Yes".equals(interest.getSelection().getActionCommand()), DOBTextField.getText(),DOBTextField1.getText(),DOBTextField2.getText()))
-                JOptionPane.showMessageDialog(this, "You have successfully registered to C.E.B. Please go to our nearest branch and have your initial deposit to activate this account.");
-        } catch (ParseException ex) {
-            Logger.getLogger(Login_view.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void DOBTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DOBTextFieldFocusGained
         // TODO add your handling code here:
@@ -443,11 +705,218 @@ public class Login_view extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DOBTextField2FocusLost
 
-    private void BackbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbuttonActionPerformed
+    private void acc_numMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_acc_numMouseClicked
+        // TODO add your handling code here:
+        if(acc_num.getText().equals("Username")){
+            acc_num.setText("");
+        }
+        
+        userSep.setBackground(new Color(202,62,71));
+        userSep.setForeground(new Color(202,62,71));
+    }//GEN-LAST:event_acc_numMouseClicked
+
+    private void DOBTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOBTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DOBTextFieldActionPerformed
+
+    private void acc_numFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_acc_numFocusLost
+        // TODO add your handling code here:
+        if(acc_num.getText().isEmpty()){
+            acc_num.setText("Username");
+        }
+        
+        userSep.setBackground(new Color(255, 255, 255));
+        userSep.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_acc_numFocusLost
+
+    private void passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passMouseClicked
+        // TODO add your handling code here:
+        if(pass.getText().equals("Password")){
+            pass.setText("");
+        }
+        
+        passSep.setBackground(new Color(202,62,71));
+        passSep.setForeground(new Color(202,62,71));
+    }//GEN-LAST:event_passMouseClicked
+
+    private void passFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFocusLost
+        // TODO add your handling code here:
+        if(pass.getText().isEmpty()){
+            pass.setText("Password");
+        }
+        
+        passSep.setBackground(new Color(255, 255, 255));
+        passSep.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_passFocusLost
+
+    private void acc_numFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_acc_numFocusGained
+        // TODOadd your handling code here:
+    }//GEN-LAST:event_acc_numFocusGained
+
+    private void acc_numKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_acc_numKeyTyped
+        // TODO add your handling code here:
+        if(acc_num.getText().equals("Username")){
+            acc_num.setText("");
+        }
+    }//GEN-LAST:event_acc_numKeyTyped
+
+    private void passKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passKeyTyped
+        // TODO add your handling code here:
+        if(pass.getText().equals("Password")){
+            pass.setText("");
+        }
+        
+    }//GEN-LAST:event_passKeyTyped
+
+    private void kGradientPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MouseDragged
+        // TODO add your handling code here:
+        
+        this.setLocation(evt.getXOnScreen() - mousex , evt.getYOnScreen() - mousey);
+        
+    }//GEN-LAST:event_kGradientPanel2MouseDragged
+
+    private void kGradientPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MousePressed
+            this.mousex = evt.getX();
+            this.mousey = evt.getY();
+                // TODO add your handling code here:
+    }//GEN-LAST:event_kGradientPanel2MousePressed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        // TODO add your handling code here:
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/close_hover.png"));
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        // TODO add your handling code here:
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/close.png"));
+    }//GEN-LAST:event_jLabel1MouseExited
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/close.png"));
+    }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+        jLabel2.setIcon(new javax.swing.ImageIcon("/home/roboto/Documents/AT1/src/close_hover.png"));
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void kGradientPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel3MouseDragged
+        // TODO add your handling code here:
+        kGradientPanel2MouseDragged(evt);
+    }//GEN-LAST:event_kGradientPanel3MouseDragged
+
+    private void kGradientPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel3MousePressed
+        // TODO add your handling code here:
+        this.mousex = evt.getX();
+        this.mousey = evt.getY();
+    }//GEN-LAST:event_kGradientPanel3MousePressed
+
+    private void usernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameTextFieldActionPerformed
+
+    private void FirstNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FirstNameTextFieldFocusGained
+        if(FirstNameTextField.getText().equals("First Name")){
+            FirstNameTextField.setText("");
+        }
+    }//GEN-LAST:event_FirstNameTextFieldFocusGained
+
+    private void LastNameLabelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LastNameLabelFocusGained
+if(LastNameLabel.getText().equals("Last Name")){
+            LastNameLabel.setText("");
+        }    }//GEN-LAST:event_LastNameLabelFocusGained
+
+    private void EmailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EmailTextFieldFocusGained
+       if(EmailTextField.getText().equals("Email")){
+            EmailTextField.setText("");
+        }
+    }//GEN-LAST:event_EmailTextFieldFocusGained
+
+    private void PhoneNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PhoneNumberTextFieldFocusGained
+        if(PhoneNumberTextField.getText().equals("Phone Number")){
+            PhoneNumberTextField.setText("");
+        }
+    }//GEN-LAST:event_PhoneNumberTextFieldFocusGained
+
+    private void usernameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameTextFieldFocusGained
+        if(usernameTextField.getText().equals("Username")){
+            usernameTextField.setText("");
+        }
+    }//GEN-LAST:event_usernameTextFieldFocusGained
+
+    private void PasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFieldFocusGained
+        if(PasswordField.getText().equals("Password")){
+            PasswordField.setText("");
+        }
+    }//GEN-LAST:event_PasswordFieldFocusGained
+
+    private void FirstNameTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FirstNameTextFieldFocusLost
+        if(FirstNameTextField.getText().isEmpty()){
+            FirstNameTextField.setText("First Name");
+        }
+    }//GEN-LAST:event_FirstNameTextFieldFocusLost
+
+    private void LastNameLabelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LastNameLabelFocusLost
+if(LastNameLabel.getText().isEmpty()){
+            LastNameLabel.setText("Last Name");
+        }    }//GEN-LAST:event_LastNameLabelFocusLost
+
+    private void EmailTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EmailTextFieldFocusLost
+if(EmailTextField.getText().isEmpty()){
+            EmailTextField.setText("Email");
+        }    }//GEN-LAST:event_EmailTextFieldFocusLost
+
+    private void PhoneNumberTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PhoneNumberTextFieldFocusLost
+if(PhoneNumberTextField.getText().isEmpty()){
+            PhoneNumberTextField.setText("Phone Number");
+        }    }//GEN-LAST:event_PhoneNumberTextFieldFocusLost
+
+    private void usernameTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameTextFieldFocusLost
+if(usernameTextField.getText().isEmpty()){
+            usernameTextField.setText("Username");
+        }    }//GEN-LAST:event_usernameTextFieldFocusLost
+
+    private void PasswordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PasswordFieldFocusLost
+if(PasswordField.getText().isEmpty()){
+            PasswordField.setText("Password");
+        }    }//GEN-LAST:event_PasswordFieldFocusLost
+
+    private void login1LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login1LoginButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_login1LoginButtonActionPerformed
+
+    private void BackbuttonLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbuttonLoginButtonActionPerformed
         // TODO add your handling code here:
         MainRegisterPanel.hide();
         MainLoginPanel.setVisible(true);
-    }//GEN-LAST:event_BackbuttonActionPerformed
+    }//GEN-LAST:event_BackbuttonLoginButtonActionPerformed
+
+    private void RegisterButtonLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonLoginButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            if(Customer.registerUser(FirstNameTextField.getText(), LastNameLabel.getText(), EmailTextField.getText(), PhoneNumberTextField.getText(), usernameTextField.getText(), PasswordField.getText(), DOBTextField.getText(),DOBTextField1.getText(),DOBTextField2.getText()))
+            JOptionPane.showMessageDialog(this, "You have successfully registered to C.E.B. Please go to our nearest branch and have your initial deposit to activate this account.");
+        } catch (ParseException ex) {
+            Bank.showError("Internal error!");
+        }
+        
+    }//GEN-LAST:event_RegisterButtonLoginButtonActionPerformed
+
+    private void PhoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhoneNumberTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,6 +933,7 @@ public class Login_view extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
+                
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Login_view.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -484,54 +954,73 @@ public class Login_view extends javax.swing.JFrame {
         });
     }
     
-    public void onClickLogin() throws SQLException{
+    public void onClickLogin() throws SQLException, Exception{
         if(this.acc_num.getText().length()==0 || this.pass.getText().length()==0){
             System.out.println("Please input both field");
         }else{
             if (Bank.authenticate(this.acc_num.getText(), this.pass.getText()))
             {
-                Main_view main_view = new Main_view();
-                main_view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                this.setVisible(false);
-                main_view.setVisible(true);
+                if(Bank.authenticatedUserType.equals("customer"))
+                {
+                    Customer_view main_view = new Customer_view();
+                    main_view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    this.setVisible(false);
+                    main_view.setVisible(true);
+                }else if(Bank.authenticatedUserType.equals("staff")){
+                    Staff_view main_view = new Staff_view();
+                    main_view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    this.setVisible(false);
+                    main_view.setVisible(true);
+                }
+                else{
+                    Manager_view main_view = new Manager_view();
+                    this.setVisible(false);
+                    main_view.setVisible(true);
+                }
+//                
             }
             else{
-                System.out.println("Authentication failed");
+                jLabel3.setVisible(true);
             }
         }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AccountNumberLabel;
-    private javax.swing.JButton Backbutton;
+    private keeptoo.KButton Backbutton;
     private javax.swing.JLabel CreateAccountLabel;
     private javax.swing.JLabel DOBField;
-    private javax.swing.JLabel DOBField1;
     private javax.swing.JTextField DOBTextField;
     private javax.swing.JTextField DOBTextField1;
     private javax.swing.JTextField DOBTextField2;
-    private javax.swing.JLabel EmailAddressLabel;
     private javax.swing.JTextField EmailTextField;
-    private javax.swing.JLabel FirstNameLabel;
     private javax.swing.JTextField FirstNameTextField;
     private javax.swing.JTextField LastNameLabel;
-    private javax.swing.JLabel LastNameTextField;
-    private javax.swing.JButton LoginButton;
     private javax.swing.JPanel MainLoginPanel;
     private javax.swing.JPanel MainRegisterPanel;
-    private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordField;
-    private javax.swing.JLabel PasswordLabel;
-    private javax.swing.JLabel PhoneNumberLabel;
     private javax.swing.JTextField PhoneNumberTextField;
-    private javax.swing.JButton RegisterButton;
+    private keeptoo.KButton RegisterButton;
     private javax.swing.JLabel RegisterLabel;
     private javax.swing.JTextField acc_num;
+    private javax.swing.JSeparator emailSep;
+    private javax.swing.JSeparator fNameSep;
     private javax.swing.ButtonGroup interest;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
+    private javax.swing.JSeparator lNameSep;
+    private keeptoo.KButton login;
+    private keeptoo.KButton login1;
     private javax.swing.JPasswordField pass;
+    private javax.swing.JSeparator passSep;
+    private javax.swing.JSeparator passwordSep;
+    private javax.swing.JSeparator phoneSep;
+    private javax.swing.JSeparator userNameSep;
+    private javax.swing.JSeparator userSep;
+    private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }
